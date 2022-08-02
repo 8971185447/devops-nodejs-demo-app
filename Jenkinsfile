@@ -24,7 +24,7 @@ pipeline {
                   mkdir -p /var/lib/jenkins/.ssh
                   ssh-keyscan 35.154.119.164 >> /var/lib/jenkins/.ssh/known_hosts
 
-                  rsync -avz --exclude  '.git' --delete -e "ssh -i $sshkey" ./ ubuntu@35.154.119.164:/app/
+                  rsync -avz --exclude  '.git' --delete -e "ssh -i $sshkey" ./ubuntu@35.154.119.164:/app/
 
                   ssh -i $sshkey ubuntu@35.154.119.164 "sudo systemctl restart nodeapp"
                   '''
